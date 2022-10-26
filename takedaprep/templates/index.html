@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 75%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<body>
+<div class="row">
+  <div class="column left" style="background-color:#aaaaaa">
+    <h2>HOUSE OF GAINS</h2>
+    <p>ADD MEMBERS</p>
+      <P>SEE MEMBERS</P>
+  </div>
+  <div class="column right" style="background-color:#ffffff;">
+      <form action="/action_page.php">
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br><br>
+          <label for="height">Height (in):</label>
+  <input type="text" id="height" name="height"><br><br>
+  <input type="submit" value="Submit">
+</form>
+  </div>
+</div>
+
+</body>
+</html>
+

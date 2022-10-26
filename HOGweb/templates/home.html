@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cali Quake Hunter</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Mapbox -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=DM Serif Text' rel='stylesheet'>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+  <!-- Nav Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light nav-stuff">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="home" style= "color:white">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard" style= "color:white">Workout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="playground" style= "color:white">Analysis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="machinelearning" style= "color:white">About</a>
+          </li>
+
+
+
+
+          <!-- For Ryan's Tableau Viz -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#">Tableau Visualizations</a>
+          </li> -->
+        </ul>
+           <img src="../static/css/hog_logo.jpg" alt="House Of Gains" width="40" height="40" style="
+    margin-left: 650px;
+">
+      </div>
+
+    </div>
+  </nav>
+  <!-- Banner -->
+  <div class="jumbotron jumbotron-fluid banner">
+    <div class="container">
+      <h1 class="display-4 main-header">How often do you get a Big One?</h1>
+      <p class="lead left">Click on your county to see your stats!</p>
+    </div>
+  </div>
+  <div class="containter">
+
+    <!-- Main row -->
+    <div class="row">
+      <!-- Main columns -->
+
+      <!-- Map -->
+      <div id='map' class="col-md-6">
+
+
+
+      </div>
+      <!-- Risk boxes -->
+      <div class="col-md-6">
+        <div class="row">
+          <div class="header-box">
+            <h3>What's A Damaging Event?</h3>
+          </div>
+          <div class="yellow-box">
+            <p>The USGS regards earthquakes at and above 5.0 as damaging earthquakes.
+              For our purposes we will adopt the same guidelines.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- Liklihood -->
+          <div class="risk-box">
+
+            <img class="dice-icon" src="../static/styleElements/rate.svg"></img>
+            <br>
+            <h2 id="rate" class="center display-text">11</h2>
+            <p class="center">Damaging events per year</p>
+
+            <!-- ####### Uncomment if probability calculator gets up and running ####### -->
+
+            <!-- <img class="dice-icon" src="../static/styleElements/dice.svg"></img>
+            <br>
+            <h2 id="probability" class="center">0.75</h2>
+            <p class="center">Liklihood of Quake</p> -->
+          </div>
+          <!-- Nearest Fault -->
+          <div class="risk-box">
+            <img class="marker-icon" src="../static/styleElements/marker.svg"></img>
+            <br>
+            <h2 id="county" class="center display-text-county">Orange County</h2>
+            <!-- <p class="center">Is your nearest fault</p> -->
+          </div>
+          <!-- Num earthquakes -->
+          <div class="risk-box">
+            <img class="pound-icon" src="../static/styleElements/pound.svg"></img>
+            <br>
+            <h2 id="numEvents" class="center display-text">55</h2>
+            <p class="center">Total damaging events have occurred in the last decade</p>
+          </div>
+          <br>
+
+        </div>
+        <!-- <div class="row">
+          <div class="explanation-box">
+            <p>Earthquakes, much like other natural disasters,
+              are unpredictable. We can however, use the data available
+              to us to forecast the liklihood of an earthquake's occurrence in a given area.</p>
+          </div>
+        </div> -->
+
+      </div>
+
+
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+      <div class="extras-box">
+      <h2>See How Your County Stacks Up..</h2>
+    </div>
+    </div>
+  </div>
+    <!-- ##### UNCOMMENT FOR RYAN'S CHARTS ##### -->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="more-box">
+          <p class="center">Earthquake Damage By Counties Most Affected: Top 10</p>
+          <div class="barChartBox">
+            <div id="barChart"></div>
+
+          </div>
+
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="tableau-box">
+          <img class="tableau" src="../static/visualizations/tableauCircles.png">
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <img class="tableau" src="../static/visualizations/countySpheres.png">  -->
+  </div>
+
+  </div>
+
+  <!-- Scripts -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+
+  <!--D3 cdn-->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+    crossorigin=""></script>
+  <!-- Our scripts -->
+  <!-- <script type="text/javascript" src="../static/js/config.js"></script> -->
+  <!-- <script type="text/javascript" src="../static/js/caliMap.js"></script> -->
+  <script src="../static/js/damageBarChart.js"></script>
+{#  <script type="text/javascript" src="{{ url_for('static',filename='js/config.js') }}"></script>#}
+{#  <script type="text/javascript" src="{{ url_for('static',filename='js/caliMap.js') }}"></script>#}
+
+</body>
+
+</html>

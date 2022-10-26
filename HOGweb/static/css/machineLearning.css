@@ -1,0 +1,54 @@
+.banner{
+    background: url('../styleElements/circles3.svg') white;
+    /* height: 100%;
+    width: 180%; */
+    background-size: 200%;
+    background-repeat: no-repeat;
+    font-family: 'Bebas Neue', cursive;
+  }
+
+  .nav-stuff{
+    background-color: #B1F1EE;
+  }
+
+ 
+  .ml-box{
+    height: 35%;
+    width: auto;
+    background-color: #B8E8FF;
+    padding: 4%;
+    
+  }
+  
+
+  body{
+    background-color: #E5FFE3;
+  }
+
+  .center{
+    text-align: center;
+  }
+
+  .header-box{
+    height: 70px;
+    width: auto;
+    background-color: #fffeb8;
+    box-shadow: -5px 5px teal;
+    margin: 4%;
+    padding: 3%;
+  }
+
+  .header{
+    font-family: 'Spartan', sans-serif;
+    font-size: 25px;
+  }
+
+  .caption-box{
+    height: 40px;
+    width: 400px;
+    background-color: #f3f5f4;
+    box-shadow: -5px 5px teal;
+    margin: 4%;
+    padding: 1%;
+    border-radius: 5px;
+  }
